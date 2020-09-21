@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="color: skyblue "> hiển thị 20 số nguyên tố đầu  </h1>
+<input type="text" id="num"/>
+<button onclick="countPrime()"> Kiểm tra</button>
+<p id="result"> </p>
+<script>
+    function isPrime(n) {
+        if (n < 1) {
+            return false;
+        }
+        else {
+            if (n <= 3)
+            return true;
+        else
+            {
+                for (let i = 3; i < (n / 2); i++) {
+                    if (n % i == 0) {
+                        return ;
+                    }
+                }
+                return true
+            }
+        }
+    }
+    // Hàm in ra các số nguyên tố từ 1 tới n
+    function print_snt()
+    {
+        // Lấy number
+        let number = (document.getElementById("num").value);
+
+        // Ép number sang kiểu INT
+        number = parseInt(number);
+       if (isPrime(number)){
+       document.getElementById('result').innerText= number +"là số nguyên tố"
+       }
+       else{
+           document.getElementById('result').innerText= number +"  không là số nguyên tố"
+       }
+    }
+function countPrime(){
+        let count=0;
+        let i=2;
+        let result="";
+        while (count<=20){
+            if(isPrime(i)){
+                result+= i+";";
+                count++;
+            }
+            i++;
+        }
+    document.getElementById('result').innerText= result;
+}
+</script>
